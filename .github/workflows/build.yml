@@ -25,7 +25,7 @@ jobs:
           distribution: temurin
 
       - name: Compile Java sources
-        run: javac -d bin $(find src -name "*.java")
+        run: javac -d bin src/*.java
 
       - name: Run SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
