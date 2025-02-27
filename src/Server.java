@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.security.SecureRandom;
+
+
+
 
 /**
  * The Server class listens for client connections and sends random proverbs.
@@ -14,7 +18,7 @@ import java.util.logging.Logger;
 public class Server {
 
     private final List<String> messages = new ArrayList<>();
-    private final Random random = new Random();
+    private final SecureRandom random = new SecureRandom();
 
     // Create a logger instance for this class
     private static final Logger logger = Logger.getLogger(Server.class.getName());
