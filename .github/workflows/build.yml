@@ -25,7 +25,12 @@ jobs:
           distribution: temurin
 
       - name: Compile Java sources
-        run: javac -d bin src/*.java
+        run: |
+          mkdir bin
+          Get-ChildItem -Recurse -Filter *.java -Path src | ForEach-Object {
+            javac -d bin $_.FullName
+          }
+        shell: pwsh
 
       - name: Run SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
