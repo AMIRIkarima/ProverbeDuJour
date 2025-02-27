@@ -32,7 +32,8 @@ jobs:
           wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
           unzip sonar-scanner-cli-5.0.1.3006-linux.zip
           mv sonar-scanner-5.0.1.3006-linux sonar-scanner
-          export PATH=$PATH:$GITHUB_WORKSPACE/sonar-scanner/bin
+          echo "SONAR_SCANNER_HOME=$GITHUB_WORKSPACE/sonar-scanner" >> $GITHUB_ENV
+          echo "$GITHUB_WORKSPACE/sonar-scanner/bin" >> $GITHUB_PATH
 
       - name: Run SonarCloud Scan
         run: |
